@@ -1,5 +1,5 @@
 {
-  "name": "ketcher-standalone",
+  "name": "@ryan-stackwave/ketcher-standalone",
   "version": "3.9.0-rc.1",
   "description": "Web-based molecule sketcher",
   "license": "Apache-2.0",

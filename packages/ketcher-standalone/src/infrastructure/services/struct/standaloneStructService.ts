@@ -79,6 +79,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { indigoWorker } from '_indigo-worker-import-alias_';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import staticIndigoWorkerUrl from './precompiledIndigoWorker.js';
 
@@ -229,7 +230,11 @@ class IndigoService implements StructService {
 
   constructor(defaultOptions: StructServiceOptions) {
     this.defaultOptions = defaultOptions;
-    this.worker = staticIndigoWorkerUrl ? new Worker(new URL(staticIndigoWorkerUrl, window.location.origin), { type: 'module' }) : indigoWorker;
+    this.worker = staticIndigoWorkerUrl
+      ? new Worker(new URL(staticIndigoWorkerUrl, window.location.origin), {
+          type: 'module',
+        })
+      : indigoWorker;
     this.worker.onmessage = (e: MessageEvent<OutputMessage<string>>) => {
       if (e.data.type === Command.Info) {
         const callbackMethod = process.env.SEPARATE_INDIGO_RENDER

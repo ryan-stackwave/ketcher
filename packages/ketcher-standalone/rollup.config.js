@@ -59,7 +59,7 @@ const baseConfig = {
     main: 'src/index.ts',
     index: 'src/emptyIndex.js',
   },
-  external: ['ketcher-core', /@babel\/runtime/],
+  external: ['ketcher-core', /@babel\/runtime/, './precompiledIndigoWorker.js'],
   plugins: [
     nodePolyfills(),
     resolve({ extensions }),
@@ -141,6 +141,26 @@ const configWithWasmFetch = {
         {
           src: '../../node_modules/indigo-ketcher/*.wasm',
           dest: 'dist/binaryWasm',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/binaryWasm/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/binaryWasmNoRender/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/cjs/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/jsNoRender/infrastructure/services/struct',
         },
       ],
     }),
