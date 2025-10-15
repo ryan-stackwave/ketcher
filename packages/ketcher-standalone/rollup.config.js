@@ -30,7 +30,7 @@ const configureWebWorkerLoader = () => {
     extensions,
     sourcemap: false,
     targetPlatform: 'browser',
-    external: ['@babel/runtime', './precompiledIndigoWorker.js'],
+    external: ['@babel/runtime'],
   });
 };
 const replaceIndigoAlias = (replacement) => {
@@ -59,7 +59,7 @@ const baseConfig = {
     main: 'src/index.ts',
     index: 'src/emptyIndex.js',
   },
-  external: ['ketcher-core', /@babel\/runtime/],
+  external: ['ketcher-core', /@babel\/runtime/, './precompiledIndigoWorker.js'],
   plugins: [
     nodePolyfills(),
     resolve({ extensions }),
