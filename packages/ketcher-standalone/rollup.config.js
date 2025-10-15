@@ -30,7 +30,7 @@ const configureWebWorkerLoader = () => {
     extensions,
     sourcemap: false,
     targetPlatform: 'browser',
-    external: ['@babel/runtime'],
+    external: ['@babel/runtime', './precompiledIndigoWorker.js'],
   });
 };
 const replaceIndigoAlias = (replacement) => {
@@ -141,6 +141,26 @@ const configWithWasmFetch = {
         {
           src: '../../node_modules/indigo-ketcher/*.wasm',
           dest: 'dist/binaryWasm',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/binaryWasm/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/binaryWasmNoRender/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/cjs/infrastructure/services/struct',
+        },
+        {
+          src: 'src/infrastructure/services/struct/precompiledIndigoWorker.js',
+          dest: 'dist/jsNoRender/infrastructure/services/struct',
         },
       ],
     }),
